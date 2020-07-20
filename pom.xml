@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>xyz.ymtao</groupId>
+  <artifactId>springcloud-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>payment</module>
+    <module>order</module>
+      <module>api-common</module>
+    <module>eureka-server</module>
+      <module>eureka-server2</module>
+      <module>payment2</module>
+      <module>payment3</module>
+      <module>order2</module>
+      <module>payment4</module>
+    <module>order3</module>
+      <module>feign-order</module>
+      <module>hystrix-payment</module>
+      <module>hystrix-order</module>
+      <module>hystrix-dashboard</module>
+      <module>gateway</module>
+      <module>config-center</module>
+      <module>config-client</module>
+      <module>config-client2</module>
+      <module>stream-provider</module>
+      <module>stream-consumer</module>
+      <module>stream-consumer2</module>
+    <module>payment01</module>
+    <module>payment02</module>
+      <module>order01</module>
+      <module>config-center-nacos</module>
+      <module>sentinel-service</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>Maven</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://maven.apache.org/</url>
+  <inceptionYear>2001</inceptionYear>
+
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://webhost.company.com/www/website</url>
+    </site>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.12</junit.version>
+    <lombok.version>1.18.10</lombok.version>
+    <log4j.version>1.2.17</log4j.version>
+    <mysql.version>8.0.16</mysql.version>
+    <druid.version>1.1.16</druid.version>
+    <druid.spring.boot.starter.version>1.1.10</druid.spring.boot.starter.version>
+    <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+    <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
+    <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
+    <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+  </properties>
+
+  <dependencyManagement>
+  <dependencies>
+  <dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-project-info-reports-plugin</artifactId>
+    <version>3.0.0</version>
+  </dependency>
+  <!--spring boot 2.2.2-->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-dependencies</artifactId>
+    <version>${spring.boot.version}</version>
+    <type>pom</type>
+    <scope>import</scope>
+  </dependency>
+    <!--spring cloud 阿里巴巴-->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+      <version>${spring.cloud.alibaba.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <!--mysql-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- druid-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>${druid.spring.boot.starter.version}</version>
+    </dependency>
+  <!--spring cloud-->
+  <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-dependencies</artifactId>
+    <version>${spring.cloud.version}</version>
+    <type>pom</type>
+    <scope>import</scope>
+  </dependency>
+    <!--mybatis-->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-spring-boot-starter.version}</version>
+    </dependency>
+    <!--junit-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+    <!--log4j-->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <!--lombok-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+  </dependencies>
+
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+      <configuration>
+        <fork>true</fork>
+        <addResources>true</addResources>
+      </configuration>
+    </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
